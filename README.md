@@ -1,2 +1,2 @@
-# Shoping-Project
-Shop mart an e-commerce website which can do all necessary things except payment.
+# Shopmart
+Shopmart is an e-commerce website which can do all necessary things except payment.
