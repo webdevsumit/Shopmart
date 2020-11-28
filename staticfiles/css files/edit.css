@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+body{
+    background: linear-gradient(45deg,rgba(255, 0, 0, 0.671),transparent,yellow,rgb(105, 226, 105),rgb(226, 181, 98),transparent,rgb(138, 138, 218), rgb(235, 107, 107), transparent);
+    height: 100%;
+}
+
+.editprofile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.editprofile form{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.editprofile form input{
+    margin: 20px 5px;
+    flex: 1;
+    height: 30px;
+    font-size: 20px;
+}
+
+.editprofile form img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0 0 25px lightgrey;
+    margin: 30px;
+    text-align: center;
+}
+
+.editprofile h1{
+    font-family: cursive;
+    letter-spacing: 3px;
+    background: transparent;
+    font-weight: bold;
+}

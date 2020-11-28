@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height:100%;
+    background: transparent;
+}
+
+.listItem{
+    padding: 3px;
+    border-bottom: 1px solid black;
+    display: flex;
+}
+
+.imgs{
+    flex: 1;
+}
+
+.listItemDetail{
+    flex: 2;
+}
+
+.listItemDetail h1{
+    font-family: monospace;
+    font-size: xx-small;
+    letter-spacing: 2px;
+    font-weight: bolder;
+}
+
+.listItemDetail h4{
+    color: white;
+    font-family: serif;
+}

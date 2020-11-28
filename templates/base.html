@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Mart</title>
+    <link rel="stylesheet" href="{% static 'css files/base.css'%}">
+</head>
+<body>
+    <header>
+        <div class="box1">
+            <h1>Shop Mart</h1>
+            <p>Just for you!</p>
+        </div>
+
+        <div class="links">
+            <a class="links-items" href="/"><img class="cornerimg" src='{% static "Images/home.png" %}' alt="Home"></a>
+
+            <div class="links-items" id="catagory">
+                <img class="cornerimg" src='{% static "Images/catagory.png" %}' alt="catagory">
+                <div id="catagory-items">
+                    {% for catagory in catagories %}
+                    <a href="catagory/{{ catagory.Catagory }}">{{ catagory.Catagory }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% if logined %}
+            <a class="links-items" href="cart"><img class="cornerimg" src="{% static 'Images/trally.png'%}" alt="cart"></a>
+            {%else%}
+            <a class="links-items" href="login"><img class="cornerimg" src="{% static 'Images/trally.png'%}" alt="cart"></a>
+            {%endif%}
+            <div class="links-items" id="account">
+                <img class="cornerimg" src="{% static 'Images/account.png'%}" alt="account">
+                <div id="account-items">
+                    {% if logined %}
+                    <a href="account">{{user}}</a>
+                    <a href="logouthome">logout</a>
+                    {%else%}
+                    <a href="login">login</a>
+                    <a href="signup">signup</a>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+        <div id="searching">
+            <img  id="searchimg" class="cornerimg" src="{% static 'Images/search.png'%}" alt="account">
+            <form id="searchbar" action="searching">
+                <input id="searchinput" name="searchinput" type="search">
+                <input type="submit" value="search">
+            </form>
+        </div>
+        
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <div id="box2">
+            <h5>CONTACT: 7999004229</h5>
+            <h5>EMAIL: sumitdhakad2232@gmail.com</h5>
+            <h5>copyright2020</h5>
+        </div>
+    </footer>
+</body>
+</html>

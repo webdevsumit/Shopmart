@@ -1,0 +1,32 @@
+{% load static %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Mart</title>
+    <link rel="stylesheet" href="{% static 'css files/edit.css'%}">
+</head>
+<body>
+    <div class="editprofile">
+        <h1>EDIT PROFILE</h1>
+        <form action="editaccount" method="POST">
+            {% csrf_token %}
+            <img src="media/{{profiledata.Image}}" alt="No profile image."><input type="file" id="profileimage" name="profileimage"><br>
+            <h3> Username :  {{userdata.username}}</h3><br>
+            <label for="Firstname">First name : </label><input type="text" id="Firstname" name="Firstname" value="{{userdata.first_name}}"><br>
+            <label for="Lastname">Last name : </label><input type="text" id="Lastname" name="Lastname" value="{{userdata.last_name}}"><br>
+            <label for="Email">Email : </label><input type="text" id="Email" name="Email" value="{{userdata.email}}"><br>
+            <label for="Address">Address : </label><input type="text" id="Address" name="Address" value="{{profiledata.Address}}"><br>
+            <label for="Phoneno">Phone no : </label><input type="number" id="Phoneno" name="Phoneno" value="{{profiledata.Phoneno}}"><br>
+            <input type="submit" value="SAVE">
+        </form>
+        <h5>{{message}}</h5>
+    </div>
+</body>
+</html>
+
+

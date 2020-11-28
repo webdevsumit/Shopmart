@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: wheat;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.view{
+    background: linear-gradient(rgb(121, 120, 120),black);
+    padding: 3%;
+    padding-top: 6%;
+    background-attachment: fixed;
+    width: 100%;
+    overflow: hidden;
+}
+
+#basic{
+    padding:20px;
+}
+
+.header{
+    position: fixed;
+    right: 1%;
+    top: 1%;
+}
+
+.header a img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
+.productData{
+    border: 1px solid violet;
+}
+
+.productData h1{
+    padding: 20px;
+    color: rgb(134, 241, 46);
+    font-weight: 900;
+    font-family: monospace;
+    letter-spacing: 2px;
+}
+
+.images{
+    margin: 30px 5%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 90%;
+    height: auto;
+}
+
+.images img{
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+    box-shadow: 0 0 25 black;
+}
+
+.radiobuttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.radiobuttons input{
+    margin: 1%;
+}
+
+.productData h4{
+    padding: 5px 2%;
+}
+
+.descriptBox{
+    padding: 10px 4%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.descriptBox p{
+    padding: 6px;
+}
+
+.descriptBox table{
+    border: 1px solid black;
+    margin: 5%;
+}
+
+.descriptBox table td,.descriptBox table th{
+    padding: 20px;
+    border: 2px solid black;
+}
+
+#image1,#image2,#image3,#image4,#image5{
+    height: 0;
+}
+

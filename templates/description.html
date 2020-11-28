@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Mart</title>
+    <link rel="stylesheet" href="{% static 'css files/description.css' %}">
+</head>
+<body>
+    <div class="view">
+        <div class="header">
+            {% if notLogined %}
+            <h1 id="basic" >Please login!!!!</h1>
+            {% else %}
+            <a class="cart" href="/cart"><img class="cornerimg" src="{% static 'Images/trally.png'%}" alt="cart"></a>
+            {% endif %}
+            <a class="home" href="/"><img class="cornerimg" src='{% static "Images/home.png" %}' alt="Home"></a>
+        </div>
+        <div class="productData">
+            <h1>{{ data.Name }}</h1>
+            <div class="images">
+                <img id="image" src="/media/{{ data.Image }}" alt="Image not available!">
+                <img id="image1" src="/media/{{ data.Image1 }}" alt="Image not available!">
+                <img id="image2" src="/media/{{ data.Image2 }}" alt="Image not available!">
+                <img id="image3" src="/media/{{ data.Image3 }}" alt="Image not available!">
+                <img id="image4" src="/media/{{ data.Image4 }}" alt="Image not available!">
+                <img id="image5" src="/media/{{ data.Image5 }}" alt="Image not available!">
+            </div>
+            <div class="radiobuttons">
+                <input type="radio" id="r" name="r" checked>
+                {% if data.Image1 %}
+                <input type="radio" id="r1" name="r">
+                {% endif %}
+                {% if data.Image2 %}
+                <input type="radio" id="r2" name="r">
+                {% endif %}
+                {% if data.Image3 %}
+                <input type="radio" id="r3" name="r">
+                {% endif %}
+                {% if data.Image4 %}
+                <input type="radio" id="r4" name="r">
+                {% endif %}
+                {% if data.Image5 %}
+                <input type="radio" id="r5" name="r">
+                {% endif %}
+            </div>
+            <h4>Rating:{{ data.Rating }}/5</h4>
+            <div class="rating-section">
+                {% if Rated %}
+                <h4>Rated:)</h4>
+                {% else %}
+                <form action="addRating" method="POST">
+                    {% csrf_token %}
+                    <label for="Rating">Rating:</label><input id="Rating" type="number" placeholder="Out of 5" name="Rating">
+                    <input type="hidden" name='product' value="{{ data.Name }}">
+                    <input type="submit" value="Rate it">
+                </form>
+                {% endif %}
+            </div>
+            <h4>Price: Rs.{{ data.Price }}</h4>
+            {% if data.Offer %}
+            <h4>Offer just for you.</h4>
+            <h4>Just in Rs.{{ data.OfferPrice }}</h4>
+            {% endif %}
+            {% if data.SpecialOffer %}
+            <h4>Special Offer just for you.</h4>
+            <h4>Just in Rs.{{ data.OfferPrice }}</h4>
+            {% endif %}
+            {% if AddedToCart %}
+            <h4>Added to cart please chechout!</h4>
+            {% else %}
+            <form action="addToCart" method="POST">
+                {% csrf_token %}
+                <label for="Quantity">Quantity:</label><input id="Quantity" type="number" value="1" name="quantity">
+                <input type="hidden" name='product' value="{{ data.Name }}">
+                <input type="submit" value="Add To Cart">
+            </form>
+            {% endif %}
+            <div class="descriptBox">
+                <h2>DESCRIPTION </h2>
+                <p>{{data.Description}}</p>
+                <table>
+                    {% if data.Title1 %}
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                    </tr>
+                    {% endif %}
+                    {% if data.Title1 %}
+                    <tr>
+                        <td>{{ data.Title1 }}</td>
+                        <td>{{ data.Description1 }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if data.Title2 %}
+                    <tr>
+                        <td>{{ data.Title2 }}</td>
+                        <td>{{ data.Description2 }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if data.Title3 %}
+                    <tr>
+                        <td>{{ data.Title3 }}</td>
+                        <td>{{ data.Description3 }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if data.Title4 %}
+                    <tr>
+                        <td>{{ data.Title4 }}</td>
+                        <td>{{ data.Description4 }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if data.Title5 %}
+                    <tr>
+                        <td>{{ data.Title5 }}</td>
+                        <td>{{ data.Description5 }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if data.Title6 %}
+                    <tr>
+                        <td>{{ data.Title6 }}</td>
+                        <td>{{ data.Description6 }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if data.Title7 %}
+                    <tr>
+                        <td>{{ data.Title7 }}</td>
+                        <td>{{ data.Description7 }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if data.Title8 %}
+                    <tr>
+                        <td>{{ data.Title8 }}</td>
+                        <td>{{ data.Description8 }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if data.Title9 %}
+                    <tr>
+                        <td>{{ data.Title9 }}</td>
+                        <td>{{ data.Description9 }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if data.Title10 %}
+                    <tr>
+                        <td>{{ data.Title10 }}</td>
+                        <td>{{ data.Description10 }}</td>
+                    </tr>
+                    {% endif %}
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    window.addEventListener('click',()=>{
+        var image = document.getElementById('image');
+        var image1 = document.getElementById('image1');
+        var image2 = document.getElementById('image2');
+        var image3 = document.getElementById('image3');
+        var image4 = document.getElementById('image4');
+        var image5 = document.getElementById('image5');
+        var r = document.getElementById('r');
+        var r1 = document.getElementById('r1');
+        var r2 = document.getElementById('r2');
+        var r3 = document.getElementById('r3');
+        var r4 = document.getElementById('r4');
+        var r5 = document.getElementById('r5');
+        if(r.checked){
+            image.style.height='100%';
+            image1.style.height=0;
+            image2.style.height=0;
+            image3.style.height=0;
+            image4.style.height=0;
+            image5.style.height=0;
+        }
+        else if(r1.checked){
+            image.style.height=0;
+            image1.style.height='100%';
+            image2.style.height=0;
+            image3.style.height=0;
+            image4.style.height=0;
+            image5.style.height=0;
+        }
+        else if(r2.checked){
+            image.style.height=0;
+            image1.style.height=0;
+            image2.style.height='100%';
+            image3.style.height=0;
+            image4.style.height=0;
+            image5.style.height=0;
+        }
+        else if(r3.checked){
+            image.style.height=0;
+            image1.style.height=0;
+            image2.style.height=0;
+            image3.style.height='100%';
+            image4.style.height=0;
+            image5.style.height=0;
+        }
+        else if(r4.checked){
+            image.style.height=0;
+            image1.style.height=0;
+            image2.style.height=0;
+            image3.style.height=0;
+            image4.style.height='100%';
+            image5.style.height=0;
+        }
+        else if(r5.checked){
+            image.style.height=0;
+            image1.style.height=0;
+            image2.style.height=0;
+            image3.style.height=0;
+            image4.style.height=0;
+            image5.style.height='100%';
+        }
+    })
+</script>
+</html>

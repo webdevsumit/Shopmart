@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Mart</title>
+    <link rel="stylesheet" href="{% static 'css files/login.css'%}">
+</head>
+<body>
+    <div class="loginform">
+        <form action="signuphome" method="POST">
+            {% csrf_token %}
+            <input type="text" name="Username" id="username" placeholder="Username"><br>
+            <input type="text" name="Firstname" id="Firstname" placeholder="First Nname"><br>
+            <input type="text" name="Lastname" id="Lastname" placeholder="Last Name"><br>
+            <input type="email" name="Email" id="Email" placeholder="Email"><br>
+            <div class="inpiu"><input type="password" name="Password" id="Password" placeholder="Create Password"><input value="Show" id="checkbox" type="checkbox"><br></div>
+            <div class="inpiu"></div><input type="password" name="Password1" id="Password1" placeholder="Confirm Password"><input value="Show" id="checkbox1" type="checkbox"><br></div>
+            <input type="submit" value="SIGNUP">
+        </form>
+        <h3>{{message}}</h3>
+    </div>
+</body>
+<script>
+    window.addEventListener('click',()=>{
+        var checkbox = document.getElementById('checkbox');
+        var checkbox1 = document.getElementById('checkbox1');
+        var Password = document.getElementById('Password');
+        var Password1 = document.getElementById('Password1');
+        if(checkbox.checked){
+            Password.type='text';
+        }
+        else{
+            Password.type='password';
+        };
+        if(checkbox1.checked){
+            Password1.type='text';
+        }
+        else{
+            Password1.type='password';
+        };
+    });
+</script>
+</html>

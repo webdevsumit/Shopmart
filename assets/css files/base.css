@@ -1,0 +1,180 @@
+*{
+    background-color: rgb(238, 237, 245);
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    padding: 0%;
+    margin: 0%;
+}
+
+header{
+    position: fixed;
+    margin: 0;
+    padding: 0%;
+    background: linear-gradient(rgb(140, 140, 230),red,orange,yellow,violet);
+    width: 100%;
+    height: 160px;
+}
+
+header a{
+    color: blanchedalmond;
+}
+
+.box1{
+    background: transparent;
+    width: 100%;
+    padding: 2% 5%;
+}
+
+.box1 h1{
+    background: transparent;
+    font-size: 44px;
+    font-weight: 900;
+    font-style: normal;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgba(27, 28, 29, 0.644);
+    width: 100%;
+}
+
+.box1 p{
+    background: transparent;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.links{
+    display: flex;
+    background: transparent;
+    height: 70px;
+}
+
+.links-items{
+    flex: 1;
+    background: transparent;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2%;
+}
+
+.cornerimg{
+    width: 45px;
+    padding: 5px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+#catagory-items{
+    visibility: hidden;
+    background: transparent;
+    flex-direction: column;
+}
+
+#catagory-items a{
+    padding: 5px;
+    background: transparent;
+    display: block;
+    border: 2px red solid;
+}
+
+#catagory:hover>#catagory-items{
+    visibility: visible;
+}
+
+#account-items{
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    z-index: 1;
+}
+
+#account-items a{
+    padding: 5px;
+    background: transparent;
+    display: block;
+    border: 2px red solid;
+}
+
+#account:hover>#account-items{
+    visibility: visible;
+    background: transparent;
+}
+
+#searchbar{
+    height: 0px;
+    overflow: hidden;
+    background: transparent;
+    display: flex;
+}
+
+#searchbar input:nth-child(1){
+    flex: 2;
+    background: transparent;
+}
+
+#searchbar input:nth-child(2){
+    flex: 1;
+    background: transparent;
+}
+
+#searching{
+    background: transparent;
+}
+
+#searchimg{
+    background: transparent;
+}
+
+#searching:hover>#searchbar{
+    height: 40px;
+    background: transparent;
+}
+
+#searching:hover>#searchimg{
+    height: 0px;
+    overflow: hidden;
+    background: transparent;
+
+}
+
+#searchinput{
+    font-size: 30px;
+    color: chartreuse;
+    font-family: monospace;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+}
+
+.searchbar input{
+    color: chartreuse;
+    height: 50px;
+    font-size: 30px;
+    position: relative;
+    bottom: 10px;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    font-family: monospace;
+}
+
+main{
+    padding: 250px 0 0 0;
+    background: linear-gradient(45deg,rgb(204, 201, 201),rgb(131, 129, 129),rgb(54, 54, 54),rgb(197, 187, 187));
+}
+
+#box2{
+    background-color: rgb(39, 39, 39);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 0px;
+    padding-left:5%;
+}
+
+#box2 h5{
+    background: transparent;
+    margin: 10px;
+}

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css files/account.css' %}">
+
+<div class="accountitem">
+    <h1>PROFILE</h1>
+    <img src="media/{{profiledata.Image}}" alt="No profile image">
+    <h3>USERNAME : {{ username }}</h3>
+    <h3>FIRST NAME : {{ firstname }}</h3>
+    <h3>LAST NAME : {{ lastname }}</h3>
+    <h3>EMAIL : {{ email }}</h3>
+    <h3>ADDRESS : {{ profiledata.Address }}</h3>
+    <h3>PHONE NO : {{ profiledata.Phoneno }}</h3>
+    <h2>YOUR ORDERS</h2>
+    <h6>---------</h6>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Delievery address</th>
+            <th>Phone No.</th>
+            <th>Payment method</th>
+        </tr>
+        {% for data in cartdata %}
+        <tr>
+            <td><a href="/YourOrder/{{data.id}}">Your order</a></td>
+            <td><h5>{{ data.Address }}</h5></td>
+            <td><h5>{{ data.Phoneno }}</h5></td>
+            <td><h5>{{ data.PaymentMethod }}</h5></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>YOUR SEARCH HISTORY</h2>
+    <h6>---------</h6>
+    <table>
+        <tr>
+            <th>Your search</th>
+            <th>Date</th>
+        </tr>
+        {% for data in searchdata %}
+        <tr>
+            <td><h5>{{ data.SearchedName }}</h5></td>
+            <td><h5>{{ data.SearchDate }}</h5></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>YOUR GIVEN RATINGS</h2>
+    <h6>---------</h6>
+    <table>
+        <tr>
+            <th>Product name</th>
+            <th>Rating</th>
+        </tr>
+        {% for data in ratingdata %}
+        <tr>
+            <td><h5>{{ data.Product.Name }}</h5></td>
+            <td><h5>{{ data.Rating }}</h5></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {%if superuser %}
+    <br>
+    <h4>YOU ARE A SUPERUSER KEEP YOUR DETAILS SECRET.</h4>
+    <br>
+    {% endif %}
+    <a href="edit">Edit profile</a>
+</div>
+
+{% endblock %}

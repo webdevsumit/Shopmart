@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<div class="view">
+    <link rel="stylesheet" href="{% static 'css files/search.css'%}">
+    <div class="list">
+        {% for data in searchData %}
+        <div class="listItem">
+            <div class="imgs">
+                <img src="/media/{{data.Image}}" alt="">
+            </div>
+            <div class="listItemDetail">
+                <a href="/description/{{data.Name}}"><h1>{{data.Name}}</h1></a>
+                {% if data.OfferPrice %}
+                <h4>Offer price: Rs.{{data.OfferPrice}} for limited time</h4>
+                {% else %}
+                <h4>Price: Rs.{{data.Price}}</h4>
+                {% endif %}
+                <h4>Rating: {{data.Rating}}/5</h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

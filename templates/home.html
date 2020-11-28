@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css files/home.css'%}">
+<div class="add1">
+    <a href="description/{{dealAdd.Name}}">
+        <h1>TODAY'S DEAL</h1>
+    </a>
+</div>
+<div class="add">
+    <video src="/media/{{trendvideo.Video}}" width="100%" autoplay loop muted ></video>
+</div>
+<div class="product">
+    {% for view in productview %}
+    <div class="view">
+        <img src="media/{{view.Image}}" alt="">
+        <a href="description/{{view.Name}}"><h2>{{view.Name}}</h2></a>
+        <p>Rs.{{view.Price}}</p>
+        <p>Rating:{{view.Rating}}/5</p>
+        {% if view.Name in CartsProductName %}
+        <p>Added to cart please checkout!</p>
+        {% else %}
+        <p>Special one for you!</p>
+        {% endif %}
+        {% if view.Offer %}
+        <div class="offerdiv">
+            <h3>OFFER</h3>
+            <h3>Only in Rs.{{ view.OfferPrice }}</h3>
+        </div>
+        {% endif %}
+        {% if view.SpecialOffer %}
+        <div class="offerdiv">
+            <h3>SPECIAL OFFER</h3>
+            <h3>Only in Rs.{{ view.OfferPrice }}</h3>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+<div class="product">
+    <h2 id="favhead">YOU MAY ALSO LIKE THESE:)</h2>
+</div>
+<div class="product">
+    
+    {% for view in favoriteview %}
+    <div class="view">
+        <img src="media/{{view.Image}}" alt="">
+        <a href="description/{{view.Name}}"><h2>{{view.Name}}</h2></a>
+        <p>Rs.{{view.Price}}</p>
+        <p>Rating:{{view.Rating}}/5</p>
+        {% if view.Name in CartsProductName %}
+        <p>Added to cart please checkout!</p>
+        {% else %}
+        <p>Special one for you!</p>
+        {% endif %}
+        {% if view.Offer %}
+        <div class="offerdiv">
+            <h3>OFFER</h3>
+            <h3>Only in Rs.{{ view.OfferPrice }}</h3>
+        </div>
+        {% endif %}
+        {% if view.SpecialOffer %}
+        <div class="offerdiv">
+            <h3>SPECIAL OFFER</h3>
+            <h3>Only in Rs.{{ view.OfferPrice }}</h3>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+    <div class="moreview"><a href="search/fav">more...</a></div>
+</div>
+
+{% endblock %}

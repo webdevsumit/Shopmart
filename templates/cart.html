@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Mart</title>
+    <link rel="stylesheet" href="{% static 'css files/cart.css'%}">
+</head>
+<body>
+    <div class="header">
+        <a class="links-items" href="/"><img class="cornerimg" src='{% static "Images/home.png" %}' alt="Home"></a>
+    </div>
+    <div class="cartdata">
+        <h1>CART</h1>
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Date Added</th>
+                <th>Price</th>
+                <th>Delete Item!</th>
+            </tr>
+            {% for item in cartitems %}
+            {% ifequal item.Ordered False %}
+            <tr>
+                <td><a href="/description/{{item.Product}}">{{ item.Product }}</a></td>
+                <td>{{ item.Quantity }}</td>
+                <td>{{ item.date_added }}</td>
+                <td>{{ item.Price }}</td>
+                <td><a href="/deleteFromCart/{{item.Product}}">Delete</a></td>
+            </tr>
+            {% endifequal %}
+            {% endfor %}
+            <tr>
+                <td>Total :</td>
+                <td>{{ Total }}</td>
+            </tr>
+        </table>
+        <div class="PaymentMethod">
+            <select name="PaymentMethod" id="PaymentMethod">
+                <option value="Cash on delivery">Cash on delivery</option>
+                <option value="RazorPay">RazorPay</option>
+            </select>
+        </div>
+        <button onclick='checkout()'>Pay</button>
+    </div>
+</body>
+<script>
+    const checkout=()=>{
+        var PaymentMethod = document.getElementById('PaymentMethod').value;
+        window.location = '/PaymentDone/'+PaymentMethod
+        window.alert('Your order has been placed. You will be informed when it will on the way. ');
+    };
+</script>
+</html>

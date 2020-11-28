@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.add{
+    border: black solid 2px;
+    background: transparent;
+    background: fixed;
+}
+
+.add1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background: linear-gradient(45deg, orange, green,blue);
+    border-top-left-radius: 50px;
+    margin: 2%;
+    border-bottom-right-radius: 50px;
+}
+
+.add1 a{
+    text-decoration: none;
+    color: darkorchid;
+}
+
+.add1 a h1{
+    font-size: xxx-large;
+    font-family: cursive;
+}
+
+.product{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background: transparent;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+
+.view{
+    margin: 1%;
+    padding: 0;
+    width: 46%;
+    border: black solid 2px;
+    background: transparent;
+    color: white;
+}
+
+.view img{
+    width: 100%;
+}
+
+.view a{
+    color: black;
+    font-size: 0.7em;
+}
+
+.view a,.view p{
+    background: transparent;
+}
+
+.offerdiv{
+    padding: 20px;
+    width: fit-content;
+    max-width: 50%;
+    border: darkmagenta solid 1px;
+    background-color: rgb(224, 47, 165);
+    box-shadow: 0 0 25px rgb(201, 45, 201);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 4px 0;
+}
+
+.offerdiv h3{
+    background: transparent;
+}
+
+.moreview a{
+    color: brown;
+    text-decoration: none;
+    width: 100%;
+    margin: 10%;
+    background: transparent;
+    font-size: 1.5em;
+}
+
+#favhead{
+    color: rgb(33, 48, 187);
+    background: transparent;
+}
